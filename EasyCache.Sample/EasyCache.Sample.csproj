@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DefineConstants>
+      Redis,
+      MemoryCache,
+      Memcache,
+    </DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\EasyCache\EasyCache.csproj" />
+  </ItemGroup>
+
+
+</Project>
