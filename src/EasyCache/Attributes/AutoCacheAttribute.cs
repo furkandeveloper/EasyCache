@@ -8,15 +8,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EasyCache.Attributes
 {
-    public class EasyCacheAttribute : Attribute, IActionFilter
+    public class AutoCacheAttribute : Attribute, IActionFilter
     {
-        public EasyCacheAttribute(Type type, string key)
+        public AutoCacheAttribute(Type type, string key)
         {
             this.Type = type;
             this.Key = key;
         }
 
-        public EasyCacheAttribute(Type type, string key, Type actionResult) : this(type, key)
+        public AutoCacheAttribute(Type type, string key, Type actionResult) : this(type, key)
         {
             this.ActionResult = actionResult;
         }
@@ -27,13 +27,19 @@ namespace EasyCache.Attributes
         public Type ActionResult { get; set; } = typeof(OkObjectResult);
         public void OnActionExecuted(ActionExecutedContext context)
         {
-            throw new NotImplementedException();
+            var cacheService = context.HttpContext.RequestServices.GetService<ICacheService>();
+            if(context.Result is ObjectResult objectResult && cacheService.Get<object>(Key) == null)
+            {
+                var data = objectResult.Value;
+
+                cacheService.Set<object>(Key, data,TimeSpan.FromSeconds(30));
+            }
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
             var cacheService = context.HttpContext.RequestServices.GetService<ICacheService>();
-            var data = cacheService.Get<object>(this.Key);
+            var data = cacheService.Get<object>(Key);
             if(data != null)
             {
                 context.Result = (IActionResult)Activator.CreateInstance(ActionResult, args: new object[] { data });
