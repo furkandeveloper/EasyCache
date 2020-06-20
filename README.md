@@ -82,11 +82,11 @@ Don't worry, if cache is null, cache will be filled after reading the data.
    }
 }
 
-        [HttpGet("[controller]/order")]
-        public async Task<IActionResult> GetOrderAsync()
-        {
-            return Ok(await cacheService.GetAndSetAsync("order", async () => await cacheService.GetAsync<string>("order"),                         TimeSpan.FromMinutes(10)););
-        }
+   [HttpGet("[controller]/order")]
+   public async Task<IActionResult> GetOrderAsync()
+   {
+     return Ok(await cacheService.GetAndSetAsync("order", async () => await cacheService.GetAsync<string>("order"),                                TimeSpan.FromMinutes(10)););
+   }
 
 ```
 
