@@ -10,9 +10,10 @@ Thus, you can easily change the provider in your applications without re-impleme
     <PackageIcon>LogoMakr_4DUduR.png</PackageIcon>
     <RepositoryUrl>https://github.com/furkandeveloper/EasyCache</RepositoryUrl>
     <PackageTags>Cache,NCache,Memory Cache, Redis, Easy Cache, Controller Cache, Memcached</PackageTags>
-    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <PackageReleaseNotes>Add extensions function for easy cache service</PackageReleaseNotes>
     <Product>EasyCache</Product>
     <PackageId>EasyCacheDotnetCore</PackageId>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
