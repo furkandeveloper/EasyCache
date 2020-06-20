@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyCache.Helpers.Extensions;
 
 namespace EasyCache.Sample.Controllers
 {
@@ -26,6 +27,12 @@ namespace EasyCache.Sample.Controllers
         public async Task<IActionResult> GetProductAsync()
         {
             return Ok(cacheService.Get<string>(DateTime.UtcNow.Minute + " product"));
+        }
+
+        [HttpGet("[controller]/order")]
+        public async Task<IActionResult> GetOrderAsync()
+        {
+            return Ok(await cacheService.GetAndSetAsync("order", async () => await cacheService.GetAsync<string>("order"), TimeSpan.FromMinutes(10)););
         }
     }
 }
