@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace EasyCache.Services.Concrete
 {
+    /// <summary>
+    /// Memcached implementation for easy cache
+    /// </summary>
     public class MemcachedManager : ICacheService
     {
         private readonly IMemcachedClient memcachedClient;
