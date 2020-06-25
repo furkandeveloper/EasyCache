@@ -1,5 +1,7 @@
 ![LogoMakr_4DUduR](https://user-images.githubusercontent.com/47147484/84819453-b0361d80-b020-11ea-9df4-7d1b6d5ae39d.png)
 
+[![CodeFactor](https://www.codefactor.io/repository/github/furkandeveloper/easycache/badge)](https://www.codefactor.io/repository/github/furkandeveloper/easycache)
+
 # EasyCache
 
 Hi, this library contains more than one cache provider.
