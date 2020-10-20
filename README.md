@@ -5,6 +5,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/furkandeveloper/easycache/badge)](https://www.codefactor.io/repository/github/furkandeveloper/easycache)
 ![Nuget](https://img.shields.io/nuget/dt/EasyCacheDotnetCore)
 ![Nuget](https://img.shields.io/nuget/v/EasyCacheDotnetCore)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c84fe2700fb04bf913f6/maintainability)](https://codeclimate.com/github/furkandeveloper/EasyCache/maintainability)
 
 # EasyCache
 
