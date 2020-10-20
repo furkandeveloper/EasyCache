@@ -3,6 +3,7 @@
 </p>
 
 [![CodeFactor](https://www.codefactor.io/repository/github/furkandeveloper/easycache/badge)](https://www.codefactor.io/repository/github/furkandeveloper/easycache)
+![Nuget](https://img.shields.io/nuget/dt/EasyCacheDotnetCore)
 
 # EasyCache
 
