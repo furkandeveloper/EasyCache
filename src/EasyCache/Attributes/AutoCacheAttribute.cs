@@ -8,8 +8,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EasyCache.Attributes
 {
+    /// <summary>
+    /// This Attribute providers auto cache for Controller.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Class,AllowMultiple = false)]
     public class AutoCacheAttribute : Attribute, IActionFilter
     {
+        /// <summary>
+        /// Ctor.
+        /// </summary>
+        /// <param name="type">
+        /// Cacheable object.
+        /// </param>
+        /// <param name="key">
+        /// Cacheable key of object.
+        /// </param>
         public AutoCacheAttribute(Type type, string key)
         {
             this.Type = type;
