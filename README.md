@@ -40,12 +40,6 @@ app.ApplyEasyMemcache();
 ```csharp
 services.AddEasyMemoryCache();
 ```
-
-# Usage
-
-```csharp
-services.AddEasyMemoryCache();
-```
 <hr/>
 
 ```csharp
