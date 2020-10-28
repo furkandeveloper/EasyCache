@@ -25,11 +25,4 @@ Thus, you can easily change the provider in your applications without re-impleme
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="C:\Users\furka\Downloads\LogoMakr_4DUduR.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
 </Project>
