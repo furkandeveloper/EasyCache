@@ -11,7 +11,7 @@ namespace EasyCache.Attributes
     /// <summary>
     /// This Attribute providers auto cache for Controller.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class,AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false)]
     public class AutoCacheAttribute : Attribute, IActionFilter
     {
         /// <summary>
