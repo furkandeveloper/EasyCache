@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{E1D4B5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCache", "src\EasyCache\EasyCache.csproj", "{42AF6015-9C7E-4544-8331-949BF27CAC39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCache.Sample", "EasyCache.Sample\EasyCache.Sample.csproj", "{ED34F211-44A8-4F73-8099-6639DD4FDA14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCache.Sample", "EasyCache.Sample\EasyCache.Sample.csproj", "{ED34F211-44A8-4F73-8099-6639DD4FDA14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCache.Memory", "src\EasyCache.Memory\EasyCache.Memory.csproj", "{204C7EE1-CF29-46C5-B8FB-CCF3B67A325C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{ED34F211-44A8-4F73-8099-6639DD4FDA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED34F211-44A8-4F73-8099-6639DD4FDA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED34F211-44A8-4F73-8099-6639DD4FDA14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204C7EE1-CF29-46C5-B8FB-CCF3B67A325C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204C7EE1-CF29-46C5-B8FB-CCF3B67A325C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204C7EE1-CF29-46C5-B8FB-CCF3B67A325C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204C7EE1-CF29-46C5-B8FB-CCF3B67A325C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{42AF6015-9C7E-4544-8331-949BF27CAC39} = {383763B2-625E-4F6C-8D40-287F7C679BC4}
 		{ED34F211-44A8-4F73-8099-6639DD4FDA14} = {E1D4B59C-8667-47D0-8988-FD9397C63272}
+		{204C7EE1-CF29-46C5-B8FB-CCF3B67A325C} = {383763B2-625E-4F6C-8D40-287F7C679BC4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43873288-880C-4666-80E3-3BB22A64E74A}
