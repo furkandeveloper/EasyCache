@@ -26,13 +26,16 @@ namespace EasyCache.Sample.Controllers
         [AutoCache(typeof(ProductResponseDto[]),"example")]
         public async Task<IActionResult> GetProductAsync()
         {
+            cacheService.Set<string>("selam", "naber",TimeSpan.FromMinutes(5));
+            var data = cacheService.Get<string>("selam");
+
             return Ok(cacheService.Get<string>(DateTime.UtcNow.Minute + " product"));
         }
 
         [HttpGet("[controller]/order")]
         public async Task<IActionResult> GetOrderAsync()
         {
-            return Ok(await cacheService.GetAndSetAsync("order", async () => await cacheService.GetAsync<string>("order"), TimeSpan.FromMinutes(10)););
+            return Ok(await cacheService.GetAndSetAsync("order", async () => await GetProductAsync(), TimeSpan.FromMinutes(10)));
         }
     }
 }
