@@ -40,8 +40,8 @@ namespace EasyCache.Sample
             services.AddEasyMemcached(options => options.AddServer("localhost", 11211));
 #endif
 #if MemoryCache
-            services.AddEasyMemoryCache();
 #endif
+            services.AddEasyMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
