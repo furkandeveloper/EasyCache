@@ -14,7 +14,7 @@ namespace EasyCache.Redis.Extensions
     public static class ServiceCollection
     {
         /// <summary>
-        /// Add EasyMemoryCache to DI container.
+        /// Add EasyRedisCache to DI container.
         /// </summary>
         /// <param name="services">
         /// Microsoft.Extensions.DependencyInjection.IServiceCollection
