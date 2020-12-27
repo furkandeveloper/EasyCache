@@ -93,6 +93,6 @@ namespace EasyCache.Core.Abstractions
         /// <param name="key">
         /// Uniqe cache key
         /// </param>
-        Task RemoveAsync(string key);
+        Task RemoveAsync<T>(string key);
     }
 }
