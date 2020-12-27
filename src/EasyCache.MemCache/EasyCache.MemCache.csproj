@@ -1,15 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Authors>furkandeveloper</Authors>
+		<Description>This library provides dynamically cache operation for MemCache.</Description>
+		<PackageIcon> </PackageIcon>
+		<PackageProjectUrl>https://github.com/furkandeveloper/EasyCache</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/furkandeveloper/EasyCache</RepositoryUrl>
+		<RepositoryType>Public</RepositoryType>
+		<PackageTags>cache, easy-cache, cache-manager, dotnet, dotnetcore, net5</PackageTags>
+		<PackageIcon>easyCache.png</PackageIcon>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="EnyimMemcachedCore" Version="2.5.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="EnyimMemcachedCore" Version="2.5.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\EasyCache.Core\EasyCache.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\EasyCache.Core\EasyCache.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="easyCache.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>
