@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EnyimMemcachedCore" Version="2.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EasyCache.Core\EasyCache.Core.csproj" />
   </ItemGroup>
 
