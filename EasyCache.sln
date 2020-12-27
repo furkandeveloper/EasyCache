@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCache.Redis", "src\Easy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCache.MemCache", "src\EasyCache.MemCache\EasyCache.MemCache.csproj", "{BB7D4A37-0FC5-4504-A522-3722A2303959}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCache.AspNetCore", "src\EasyCache.AspNetCore\EasyCache.AspNetCore.csproj", "{9E9DA6FA-5357-42FC-BEA6-24E4980D65B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{BB7D4A37-0FC5-4504-A522-3722A2303959}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB7D4A37-0FC5-4504-A522-3722A2303959}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB7D4A37-0FC5-4504-A522-3722A2303959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E9DA6FA-5357-42FC-BEA6-24E4980D65B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E9DA6FA-5357-42FC-BEA6-24E4980D65B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E9DA6FA-5357-42FC-BEA6-24E4980D65B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E9DA6FA-5357-42FC-BEA6-24E4980D65B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{F54B900E-B12A-4256-B5D3-0AF895ACB982} = {383763B2-625E-4F6C-8D40-287F7C679BC4}
 		{F333B3FA-54C5-47D3-B54F-AC35194F5DD6} = {383763B2-625E-4F6C-8D40-287F7C679BC4}
 		{BB7D4A37-0FC5-4504-A522-3722A2303959} = {383763B2-625E-4F6C-8D40-287F7C679BC4}
+		{9E9DA6FA-5357-42FC-BEA6-24E4980D65B6} = {383763B2-625E-4F6C-8D40-287F7C679BC4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43873288-880C-4666-80E3-3BB22A64E74A}
