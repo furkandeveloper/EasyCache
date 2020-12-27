@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Authors>furkandeveloper</Authors>
-		<Description>This library provides dynamically cache operation for MemoryCache.</Description>
+		<Description>This library provides dynamically cache operation for Redis.</Description>
 		<PackageIcon> </PackageIcon>
 		<PackageProjectUrl>https://github.com/furkandeveloper/EasyCache</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/furkandeveloper/EasyCache</RepositoryUrl>

@@ -1,6 +1,5 @@
-﻿using EasyCache.Attributes;
+﻿using EasyCache.Core.Abstractions;
 using EasyCache.Sample.Dtos;
-using EasyCache.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
@@ -8,34 +7,34 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyCache.Helpers.Extensions;
 
 namespace EasyCache.Sample.Controllers
 {
     [ApiController]
     public class DefaultController : ControllerBase
     {
-        private readonly ICacheService cacheService;
+        private readonly IEasyCacheService easyCacheService;
 
-        public DefaultController(ICacheService cacheService)
+        public DefaultController(IEasyCacheService easyCacheService)
         {
-            this.cacheService = cacheService;
+            this.easyCacheService = easyCacheService;
         }
 
         [HttpGet("[controller]/product")]
-        [AutoCache(typeof(ProductResponseDto[]),"example")]
+        //[AutoCache(typeof(ProductResponseDto[]),"example")]
         public async Task<IActionResult> GetProductAsync()
         {
-            cacheService.Set<string>("selam", "naber",TimeSpan.FromMinutes(5));
-            var data = cacheService.Get<string>("selam");
+            easyCacheService.Set<string>("selam", "naber",TimeSpan.FromMinutes(5));
+            await easyCacheService.SetAsync("selam2", "naber2", TimeSpan.FromMinutes(3));
 
-            return Ok(cacheService.Get<string>(DateTime.UtcNow.Minute + " product"));
+            return Ok(easyCacheService.Get<string>("selam2"));
         }
 
         [HttpGet("[controller]/order")]
         public async Task<IActionResult> GetOrderAsync()
         {
-            return Ok(await cacheService.GetAndSetAsync("order", async () => await GetProductAsync(), TimeSpan.FromMinutes(10)));
+            //return Ok(await cacheService.GetAndSetAsync("order", async () => await GetProductAsync(), TimeSpan.FromMinutes(10)));
+            return NoContent();
         }
     }
 }
