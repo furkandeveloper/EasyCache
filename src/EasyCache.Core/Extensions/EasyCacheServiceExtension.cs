@@ -8,7 +8,7 @@ namespace EasyCache.Core.Extensions
     /// <summary>
     /// This class includes extensions method of IEasyCacheService
     /// </summary>
-    public static class CacheServiceExtension
+    public static class EasyCacheServiceExtension
     {
         public static T GetAndSet<T>(this IEasyCacheService easyCacheService, string key, Func<T> getResult, TimeSpan expireTime)
         {
