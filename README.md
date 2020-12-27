@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/47147484/97483794-f2755100-1968-11eb-9d7a-90b1433690ee.png" />
+    <img src="https://user-images.githubusercontent.com/47147484/97483794-f2755100-1968-11eb-9d7a-90b1433690ee.png" style="max-width:100%;" height="140"  />
 </p>
 
 [![CodeFactor](https://www.codefactor.io/repository/github/furkandeveloper/easycache/badge)](https://www.codefactor.io/repository/github/furkandeveloper/easycache)
