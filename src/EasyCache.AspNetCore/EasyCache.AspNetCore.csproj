@@ -1,16 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Authors>furkandeveloper</Authors>
+		<Description>This library includes AutoCache attribute for AspNetCore.</Description>
+		<Copyright />
+		<PackageProjectUrl>https://github.com/furkandeveloper/EasyCache</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/furkandeveloper/EasyCache</RepositoryUrl>
+		<RepositoryType>Public</RepositoryType>
+		<PackageTags>cache, easy-cache, cache-manager, dotnet, dotnetcore, net5</PackageTags>
+		<PackageIcon>easyCache.png</PackageIcon>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="easyCache.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\EasyCache.Core\EasyCache.Core.csproj" />
-  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EasyCache.Core\EasyCache.Core.csproj" />
+	</ItemGroup>
 
 </Project>
