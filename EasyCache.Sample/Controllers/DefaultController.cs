@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using EasyCache.Core.Extensions;
+using EasyCache.AspNetCore.Attributes;
 
 namespace EasyCache.Sample.Controllers
 {
@@ -27,7 +28,7 @@ namespace EasyCache.Sample.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("[controller]/product")]
-        //[AutoCache(typeof(ProductResponseDto[]), "products")]
+        [AutoCache(typeof(ProductResponseDto[]), "products")]
         public IActionResult AutoCache()
         {
             return Ok(new List<ProductResponseDto>
