@@ -6,7 +6,9 @@ using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using EasyCache.Core.Extensions;
 
 namespace EasyCache.Sample.Controllers
 {
@@ -20,21 +22,54 @@ namespace EasyCache.Sample.Controllers
             this.easyCacheService = easyCacheService;
         }
 
+        /// <summary>
+        /// Get product from cache
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("[controller]/product")]
-        //[AutoCache(typeof(ProductResponseDto[]),"example")]
-        public async Task<IActionResult> GetProductAsync()
+        //[AutoCache(typeof(ProductResponseDto[]), "products")]
+        public IActionResult AutoCache()
         {
-            easyCacheService.Set<string>("selam", "naber",TimeSpan.FromMinutes(5));
-            await easyCacheService.SetAsync("selam2", "naber2", TimeSpan.FromMinutes(3));
-
-            return Ok(easyCacheService.Get<string>("selam2"));
+            return Ok(new List<ProductResponseDto>
+            {
+                new ProductResponseDto
+                {
+                    Name = "Product 1",
+                    Description = "Product Description 1"
+                },
+                new ProductResponseDto
+                {
+                    Name = "Product 2",
+                    Description = "Product Description 2"
+                },
+                new ProductResponseDto
+                {
+                    Name = "Product 3",
+                    Description = "Product Description 3"
+                }
+            });
         }
 
         [HttpGet("[controller]/order")]
-        public async Task<IActionResult> GetOrderAsync()
+        public IActionResult Order()
         {
-            //return Ok(await cacheService.GetAndSetAsync("order", async () => await GetProductAsync(), TimeSpan.FromMinutes(10)));
+            easyCacheService.GetAndSet("getAndSet", () => AutoCache(), TimeSpan.FromSeconds(1));
             return NoContent();
+        }
+
+        [HttpGet("[controller]/category")]
+        public async Task<IActionResult> CategoryAsync()
+        {
+            var data = await easyCacheService.GetAndSet("getAndSet", () => GetData(), TimeSpan.FromSeconds(1));
+            return Ok(data);
+        }
+
+        [NonAction]
+        public async Task<string[]> GetData()
+        {
+            return new string[] {
+                "Data"
+            };
         }
     }
 }

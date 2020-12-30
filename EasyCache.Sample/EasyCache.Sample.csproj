@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\EasyCache.Core\EasyCache.Core.csproj" />
     <ProjectReference Include="..\src\EasyCache.Memory\EasyCache.Memory.csproj" />
   </ItemGroup>
 

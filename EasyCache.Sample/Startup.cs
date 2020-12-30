@@ -27,7 +27,7 @@ namespace EasyCache.Sample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
+            
             services.AddEasyMemoryCache();
         }
 
