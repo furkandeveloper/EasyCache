@@ -13,7 +13,7 @@ namespace EasyCache.Core.Extensions
         public static T GetAndSet<T>(this IEasyCacheService easyCacheService, string key, Func<T> getResult, TimeSpan expireTime)
         {
             var data = easyCacheService.Get<T>(key);
-
+            
             if (data == null)
             {
                 data = getResult();
