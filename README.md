@@ -32,22 +32,22 @@ Install `EasyCache.Memory` from [Nuget Package](https://www.nuget.org/packages/E
 Add `services.AddEasyMemoryCache()` in startup.cs
 
 ```csharp
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
-            
-            services.AddEasyMemoryCache(); <-- Initialize EasyCache for MemoryCache
-        }
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+    
+    services.AddEasyMemoryCache(); <-- Initialize EasyCache for MemoryCache
+}
 ```
 after get `IEasCacheService` from dependency injection.
 
 ```csharp
-        private readonly IEasyCacheService easyCacheService;
+private readonly IEasyCacheService easyCacheService;
 
-        public DefaultController(IEasyCacheService easyCacheService)
-        {
-            this.easyCacheService = easyCacheService;
-        }
+public DefaultController(IEasyCacheService easyCacheService)
+{
+    this.easyCacheService = easyCacheService;
+}
 ```
 
 <hr/>
@@ -58,26 +58,26 @@ Install `EasyCache.Redis` from [Nuget Package](https://www.nuget.org/packages/Ea
 Add `services.AddEasyRedisCache()` in startup.cs
 
 ```csharp
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
-            
-            services.AddEasyRedisCache(options=>
-            {
-                options.Configuration = "localhost";
-                options.InstanceName = GetType().Assembly.GetName().Name
-            }); <-- Initialize EasyCache for Redis
-        }
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+    
+    services.AddEasyRedisCache(options=>
+    {
+        options.Configuration = "localhost";
+        options.InstanceName = GetType().Assembly.GetName().Name
+    }); <-- Initialize EasyCache for Redis
+}
 ```
 after get `IEasCacheService` from dependency injection.
 
 ```csharp
-        private readonly IEasyCacheService easyCacheService;
+private readonly IEasyCacheService easyCacheService;
 
-        public DefaultController(IEasyCacheService easyCacheService)
-        {
-            this.easyCacheService = easyCacheService;
-        }
+public DefaultController(IEasyCacheService easyCacheService)
+{
+    this.easyCacheService = easyCacheService;
+}
 ```
 
 <hr/>
@@ -88,22 +88,22 @@ Install `EasyCache.MemCache` from [Nuget Package](https://www.nuget.org/packages
 Add `services.AddEasyRedisCache()` in startup.cs
 
 ```csharp
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
-            
-            services.AddEasyMemCache(options=>options.AddServer("localhost",11211)); <-- Initialize EasyCache for MemCache
-        }
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+    
+    services.AddEasyMemCache(options=>options.AddServer("localhost",11211)); <-- Initialize EasyCache for MemCache
+}
 ```
 after get `IEasCacheService` from dependency injection.
 
 ```csharp
-        private readonly IEasyCacheService easyCacheService;
+private readonly IEasyCacheService easyCacheService;
 
-        public DefaultController(IEasyCacheService easyCacheService)
-        {
-            this.easyCacheService = easyCacheService;
-        }
+public DefaultController(IEasyCacheService easyCacheService)
+{
+    this.easyCacheService = easyCacheService;
+}
 ```
 
 <hr/>
