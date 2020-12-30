@@ -7,19 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{383763B2-625
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{E1D4B59C-8667-47D0-8988-FD9397C63272}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCache", "src\EasyCache\EasyCache.csproj", "{42AF6015-9C7E-4544-8331-949BF27CAC39}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCache.Sample", "EasyCache.Sample\EasyCache.Sample.csproj", "{ED34F211-44A8-4F73-8099-6639DD4FDA14}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCache.Memory", "src\EasyCache.Memory\EasyCache.Memory.csproj", "{204C7EE1-CF29-46C5-B8FB-CCF3B67A325C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCache.Core", "src\EasyCache.Core\EasyCache.Core.csproj", "{F54B900E-B12A-4256-B5D3-0AF895ACB982}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCache.Redis", "src\EasyCache.Redis\EasyCache.Redis.csproj", "{F333B3FA-54C5-47D3-B54F-AC35194F5DD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCache.Redis", "src\EasyCache.Redis\EasyCache.Redis.csproj", "{F333B3FA-54C5-47D3-B54F-AC35194F5DD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCache.MemCache", "src\EasyCache.MemCache\EasyCache.MemCache.csproj", "{BB7D4A37-0FC5-4504-A522-3722A2303959}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCache.MemCache", "src\EasyCache.MemCache\EasyCache.MemCache.csproj", "{BB7D4A37-0FC5-4504-A522-3722A2303959}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyCache.AspNetCore", "src\EasyCache.AspNetCore\EasyCache.AspNetCore.csproj", "{9E9DA6FA-5357-42FC-BEA6-24E4980D65B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyCache.AspNetCore", "src\EasyCache.AspNetCore\EasyCache.AspNetCore.csproj", "{9E9DA6FA-5357-42FC-BEA6-24E4980D65B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{42AF6015-9C7E-4544-8331-949BF27CAC39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42AF6015-9C7E-4544-8331-949BF27CAC39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42AF6015-9C7E-4544-8331-949BF27CAC39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42AF6015-9C7E-4544-8331-949BF27CAC39}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ED34F211-44A8-4F73-8099-6639DD4FDA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ED34F211-44A8-4F73-8099-6639DD4FDA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED34F211-44A8-4F73-8099-6639DD4FDA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -60,7 +54,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{42AF6015-9C7E-4544-8331-949BF27CAC39} = {383763B2-625E-4F6C-8D40-287F7C679BC4}
 		{ED34F211-44A8-4F73-8099-6639DD4FDA14} = {E1D4B59C-8667-47D0-8988-FD9397C63272}
 		{204C7EE1-CF29-46C5-B8FB-CCF3B67A325C} = {383763B2-625E-4F6C-8D40-287F7C679BC4}
 		{F54B900E-B12A-4256-B5D3-0AF895ACB982} = {383763B2-625E-4F6C-8D40-287F7C679BC4}
