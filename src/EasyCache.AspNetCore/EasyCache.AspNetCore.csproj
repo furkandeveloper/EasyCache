@@ -10,6 +10,7 @@
 		<RepositoryType>Public</RepositoryType>
 		<PackageTags>cache, easy-cache, cache-manager, dotnet, dotnetcore, net5</PackageTags>
 		<PackageIcon>easyCache.png</PackageIcon>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>

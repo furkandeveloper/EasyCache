@@ -1,16 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Authors>furkandeveloper</Authors>
-    <Description>This library includes base cache operations.</Description>
-    <Copyright />
-    <PackageProjectUrl>https://github.com/furkandeveloper/EasyCache</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/furkandeveloper/EasyCache</RepositoryUrl>
-    <RepositoryType>Public</RepositoryType>
-    <PackageTags>cache, easy-cache, cache-manager, dotnet, dotnetcore, net5</PackageTags>
-    <PackageIcon>easyCache.png</PackageIcon>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Authors>furkandeveloper</Authors>
+		<Description>This library includes base cache operations.</Description>
+		<Copyright />
+		<PackageProjectUrl>https://github.com/furkandeveloper/EasyCache</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/furkandeveloper/EasyCache</RepositoryUrl>
+		<RepositoryType>Public</RepositoryType>
+		<PackageTags>cache, easy-cache, cache-manager, dotnet, dotnetcore, net5</PackageTags>
+		<PackageIcon>easyCache.png</PackageIcon>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="easyCache.png">
