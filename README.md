@@ -1,11 +1,18 @@
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/47147484/97483794-f2755100-1968-11eb-9d7a-90b1433690ee.png" />
+    <img src="https://user-images.githubusercontent.com/47147484/97483794-f2755100-1968-11eb-9d7a-90b1433690ee.png" style="max-width:100%;" height="140"  />
 </p>
 
 [![CodeFactor](https://www.codefactor.io/repository/github/furkandeveloper/easycache/badge)](https://www.codefactor.io/repository/github/furkandeveloper/easycache)
-![Nuget](https://img.shields.io/nuget/dt/EasyCacheDotnetCore)
-![Nuget](https://img.shields.io/nuget/v/EasyCacheDotnetCore)
+![Nuget](https://img.shields.io/nuget/dt/EasyCache.Core?label=EasyCache.Core%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyCache.Core?label=EasyCache.Core)
+![Nuget](https://img.shields.io/nuget/dt/EasyCache.Memory?label=EasyCache.Memory%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyCache.Memory?label=EasyCache.Memory)
+![Nuget](https://img.shields.io/nuget/dt/EasyCache.Redis?label=EasyCache.Redis%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyCache.Redis?label=EasyCache.Redis)
+![Nuget](https://img.shields.io/nuget/dt/EasyCache.MemCache?label=EasyCache.MemCache%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyCache.MemCache?label=EasyCache.MemCache)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c84fe2700fb04bf913f6/maintainability)](https://codeclimate.com/github/furkandeveloper/EasyCache/maintainability)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # EasyCache
 
@@ -13,82 +20,92 @@ Hi, this library contains more than one cache provider.
 
 Thus, you can easily change the provider in your applications without re-implementation.
 
-# Getting Started
+## Give a Star 🌟
+If you liked the project or if EasyCache helped you, please give a star.
 
-Install EasyCache from [Nuget package](https://www.nuget.org/packages/EasyCacheDotnetCore).
+# How to use EasyCache?
+EasyCache includes one more than cache provider. Choose any.
 
-# Redis Configuration
+## EasyCache for MemoryCache
+Install `EasyCache.Memory` from [Nuget Package](https://www.nuget.org/packages/EasyCache.Memory)
+
+Add `services.AddEasyMemoryCache()` in startup.cs
 
 ```csharp
-services.AddEasyRedisCache(options =>
-{
-    options.Configuration = "localhost";
-    options.InstanceName = GetType().Assembly.GetName().Name;
-});
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllers();
+            
+            services.AddEasyMemoryCache(); <-- Initialize EasyCache for MemoryCache
+        }
+```
+after get `IEasCacheService` from dependency injection.
+
+```csharp
+        private readonly IEasyCacheService easyCacheService;
+
+        public DefaultController(IEasyCacheService easyCacheService)
+        {
+            this.easyCacheService = easyCacheService;
+        }
 ```
 
-# Memcached Configuration for ConfigureServices
-```csharp
-services.AddEasyMemcached(options => options.AddServer("localhost", 11211));
-```
-for Configure
-```csharp
-app.ApplyEasyMemcache();
-```
-
-# Memory Cache Configuration
-```csharp
-services.AddEasyMemoryCache();
-```
 <hr/>
 
+## EasyCache for Redis
+Install `EasyCache.Redis` from [Nuget Package](https://www.nuget.org/packages/EasyCache.Redis)
+
+Add `services.AddEasyRedisCache()` in startup.cs
+
 ```csharp
-  [ApiController]
-  public class DefaultController : ControllerBase
-  {
-   private readonly ICacheService cacheService;
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllers();
+            
+            services.AddEasyRedisCache(options=>
+            {
+                options.Configuration = "localhost";
+                options.InstanceName = GetType().Assembly.GetName().Name
+            }); <-- Initialize EasyCache for Redis
+        }
+```
+after get `IEasCacheService` from dependency injection.
 
-   public DefaultController(ICacheService cacheService)
-   {
-       this.cacheService = cacheService;
-   }
+```csharp
+        private readonly IEasyCacheService easyCacheService;
 
-   [HttpGet("[controller]/product")]
-   public async Task<IActionResult> GetProductAsync()
-   {
-     return Ok(cacheService.Get<string>(DateTime.UtcNow.Minute + " product"));
-   }
-}
+        public DefaultController(IEasyCacheService easyCacheService)
+        {
+            this.easyCacheService = easyCacheService;
+        }
 ```
 
-It is read from the key cache specified by AutoCache Attribute. 
-Don't worry, if cache is null, cache will be filled after reading the data.
-# Example
+<hr/>
+
+## EasyCache for MemCache
+Install `EasyCache.MemCache` from [Nuget Package](https://www.nuget.org/packages/EasyCache.MemCache)
+
+Add `services.AddEasyRedisCache()` in startup.cs
+
 ```csharp
-  [ApiController]
-  public class DefaultController : ControllerBase
-  {
-   private readonly ICacheService cacheService;
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllers();
+            
+            services.AddEasyMemCache(options=>options.AddServer("localhost",11211)); <-- Initialize EasyCache for MemCache
+        }
+```
+after get `IEasCacheService` from dependency injection.
 
-   public DefaultController(ICacheService cacheService)
-   {
-       this.cacheService = cacheService;
-   }
+```csharp
+        private readonly IEasyCacheService easyCacheService;
 
-   [HttpGet("[controller]/product")]
-   [AutoCache(typeof(ProductResponseDto[]),"example")]
-   public async Task<IActionResult> GetProductAsync()
-   {
-     return Ok(cacheService.Get<string>(DateTime.UtcNow.Minute + " product"));
-   }
-   
-   [HttpGet("[controller]/order")]
-   public async Task<IActionResult> GetOrderAsync()
-   {
-     return Ok(await cacheService.GetAndSetAsync("order", async () => await cacheService.GetAsync<string>("order"),                                TimeSpan.FromMinutes(10)););
-   }
-}
+        public DefaultController(IEasyCacheService easyCacheService)
+        {
+            this.easyCacheService = easyCacheService;
+        }
 ```
 
+<hr/>
 
-
+To be contuined...
