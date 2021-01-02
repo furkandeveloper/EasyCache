@@ -108,4 +108,4 @@ public DefaultController(IEasyCacheService easyCacheService)
 
 <hr/>
 
-To be contuined...
+See for more information [Wiki](https://github.com/furkandeveloper/EasyCache/wiki)
