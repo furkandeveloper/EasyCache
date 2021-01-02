@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyCache.Helpers.Extensions;
+using EasyCache.Memory.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using StackExchange.Redis;
 
 namespace EasyCache.Sample
 {
@@ -28,20 +27,8 @@ namespace EasyCache.Sample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
-#if Redis
-            services.AddEasyRedisCache(options =>
-            {
-                options.Configuration = "localhost";
-                options.InstanceName = GetType().Assembly.GetName().Name;
-            });
-#endif
-#if Memcache
-            services.AddEasyMemcached(options => options.AddServer("localhost", 11211));
-#endif
-#if MemoryCache
+            
             services.AddEasyMemoryCache();
-#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,10 +38,6 @@ namespace EasyCache.Sample
             {
                 app.UseDeveloperExceptionPage();
             }
-
-#if Memcache
-            app.ApplyEasyMemcache();
-#endif
 
             app.UseHttpsRedirection();
 

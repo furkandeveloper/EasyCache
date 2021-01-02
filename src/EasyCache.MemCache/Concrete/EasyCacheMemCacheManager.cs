@@ -1,31 +1,31 @@
-﻿using EasyCache.Services.Abstractions;
+﻿using EasyCache.Core.Abstractions;
 using Enyim.Caching;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyCache.Services.Concrete
+namespace EasyCache.MemCache.Concrete
 {
     /// <summary>
-    /// Memcached implementation for easy cache
+    /// This class includes implementation of Cache operation for MemCache
     /// </summary>
-    public class MemcachedManager : ICacheService
+    public class EasyCacheMemCacheManager : IEasyCacheService
     {
         private readonly IMemcachedClient memcachedClient;
 
-        public MemcachedManager(IMemcachedClient memcachedClient)
+        public EasyCacheMemCacheManager(IMemcachedClient memcachedClient)
         {
             this.memcachedClient = memcachedClient;
         }
-        public T Get<T>(string key)
+        public virtual T Get<T>(string key)
         {
             var data = memcachedClient.Get<T>(key);
             if (data == null) return default(T);
             else return data;
         }
 
-        public async Task<T> GetAsync<T>(string key)
+        public virtual async Task<T> GetAsync<T>(string key)
         {
             var data = await memcachedClient.GetValueAsync<T>(key);
             if (data == null)
@@ -34,22 +34,22 @@ namespace EasyCache.Services.Concrete
                 return data;
         }
 
-        public void Remove<T>(string key)
+        public virtual void Remove<T>(string key)
         {
             memcachedClient.Remove(key);
         }
 
-        public async Task RemoveAsync(string key)
+        public virtual async Task RemoveAsync<T>(string key)
         {
             await memcachedClient.RemoveAsync(key);
         }
 
-        public void Set<T>(string key, T value, TimeSpan expireTime)
+        public virtual void Set<T>(string key, T value, TimeSpan expireTime)
         {
             memcachedClient.Set(key, value, (int)expireTime.TotalSeconds);
         }
 
-        public async Task SetAsync<T>(string key, T value, TimeSpan expireTime)
+        public virtual async Task SetAsync<T>(string key, T value, TimeSpan expireTime)
         {
             await memcachedClient.SetAsync(key, value, (int)expireTime.TotalSeconds);
         }

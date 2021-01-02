@@ -1,25 +1,26 @@
-﻿using EasyCache.Services.Abstractions;
+﻿using EasyCache.Core.Abstractions;
 using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyCache.Services.Concrete
+namespace EasyCache.Redis.Concrete
 {
-    public class RedisCacheManager : ICacheService
+    /// <summary>
+    /// This class includes implementation of Cache operation for Redis
+    /// </summary>
+    public class EasyCacheRedisManager : IEasyCacheService
     {
         private readonly IDistributedCache distributedCache;
 
-        public RedisCacheManager(IDistributedCache distributedCache)
+        public EasyCacheRedisManager(IDistributedCache distributedCache)
         {
             this.distributedCache = distributedCache;
         }
-        public T Get<T>(string key)
+        public virtual T Get<T>(string key)
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             using (var memoryStream = new MemoryStream())
@@ -35,7 +36,7 @@ namespace EasyCache.Services.Concrete
             }
         }
 
-        public async Task<T> GetAsync<T>(string key)
+        public virtual async Task<T> GetAsync<T>(string key)
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             using (var memoryStream = new MemoryStream())
@@ -51,39 +52,39 @@ namespace EasyCache.Services.Concrete
             }
         }
 
-        public void Remove<T>(string key)
+        public virtual void Remove<T>(string key)
         {
             var data = distributedCache.Get(key);
             if (data != null)
                 distributedCache.Remove(key);
         }
 
-        public async Task RemoveAsync(string key)
+        public virtual async Task RemoveAsync<T>(string key)
         {
             var data = await distributedCache.GetAsync(key);
             if (data != null)
                 await distributedCache.RemoveAsync(key);
         }
 
-        public void Set<T>(string key, T value,TimeSpan expireTime)
+        public virtual void Set<T>(string key, T value, TimeSpan expireTime)
         {
             BinaryFormatter bf = new BinaryFormatter();
             using (var ms = new MemoryStream())
             {
                 bf.Serialize(ms, value);
                 var option = new DistributedCacheEntryOptions().SetSlidingExpiration(expireTime);
-                distributedCache.Set(key, ms.ToArray(),option);
+                distributedCache.Set(key, ms.ToArray(), option);
             }
         }
 
-        public async Task SetAsync<T>(string key, T value, TimeSpan expireTime)
+        public virtual async Task SetAsync<T>(string key, T value, TimeSpan expireTime)
         {
             BinaryFormatter bf = new BinaryFormatter();
             using (var ms = new MemoryStream())
             {
                 bf.Serialize(ms, value);
                 var option = new DistributedCacheEntryOptions().SetSlidingExpiration(expireTime);
-                await distributedCache.SetAsync(key, ms.ToArray(),option);
+                await distributedCache.SetAsync(key, ms.ToArray(), option);
             }
         }
     }
