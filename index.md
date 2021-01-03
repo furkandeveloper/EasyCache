@@ -1,37 +1,113 @@
-## Welcome to GitHub Pages
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/47147484/97483794-f2755100-1968-11eb-9d7a-90b1433690ee.png" style="max-width:100%;" height="140"  />
+</p>
 
-You can use the [editor on GitHub](https://github.com/furkandeveloper/EasyCache/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+[![CodeFactor](https://www.codefactor.io/repository/github/furkandeveloper/easycache/badge)](https://www.codefactor.io/repository/github/furkandeveloper/easycache)
+![Nuget](https://img.shields.io/nuget/dt/EasyCache.Core?label=EasyCache.Core%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyCache.Core?label=EasyCache.Core)
+![Nuget](https://img.shields.io/nuget/dt/EasyCache.AspNetCore?label=EasyCache.AspNetCore%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyCache.AspNetCore?label=EasyCache.AspNetCore)
+![Nuget](https://img.shields.io/nuget/dt/EasyCache.Memory?label=EasyCache.Memory%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyCache.Memory?label=EasyCache.Memory)
+![Nuget](https://img.shields.io/nuget/dt/EasyCache.Redis?label=EasyCache.Redis%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyCache.Redis?label=EasyCache.Redis)
+![Nuget](https://img.shields.io/nuget/dt/EasyCache.MemCache?label=EasyCache.MemCache%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyCache.MemCache?label=EasyCache.MemCache)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c84fe2700fb04bf913f6/maintainability)](https://codeclimate.com/github/furkandeveloper/EasyCache/maintainability)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# EasyCache
 
-### Markdown
+Hi, this library contains more than one cache provider.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Thus, you can easily change the provider in your applications without re-implementation.
 
-```markdown
-Syntax highlighted code block
+## Give a Star 🌟
+If you liked the project or if EasyCache helped you, please give a star.
 
-# Header 1
-## Header 2
-### Header 3
+# How to use EasyCache?
+EasyCache includes one more than cache provider. Choose any.
 
-- Bulleted
-- List
+## EasyCache for MemoryCache
+Install `EasyCache.Memory` from [Nuget Package](https://www.nuget.org/packages/EasyCache.Memory)
 
-1. Numbered
-2. List
+Add `services.AddEasyMemoryCache()` in startup.cs
 
-**Bold** and _Italic_ and `Code` text
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+    
+    services.AddEasyMemoryCache(); <-- Initialize EasyCache for MemoryCache
+}
+```
+after get `IEasCacheService` from dependency injection.
 
-[Link](url) and ![Image](src)
+```csharp
+private readonly IEasyCacheService easyCacheService;
+
+public DefaultController(IEasyCacheService easyCacheService)
+{
+    this.easyCacheService = easyCacheService;
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+<hr/>
 
-### Jekyll Themes
+## EasyCache for Redis
+Install `EasyCache.Redis` from [Nuget Package](https://www.nuget.org/packages/EasyCache.Redis)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/furkandeveloper/EasyCache/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Add `services.AddEasyRedisCache()` in startup.cs
 
-### Support or Contact
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+    
+    services.AddEasyRedisCache(options=>
+    {
+        options.Configuration = "localhost";
+        options.InstanceName = GetType().Assembly.GetName().Name
+    }); <-- Initialize EasyCache for Redis
+}
+```
+after get `IEasCacheService` from dependency injection.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```csharp
+private readonly IEasyCacheService easyCacheService;
+
+public DefaultController(IEasyCacheService easyCacheService)
+{
+    this.easyCacheService = easyCacheService;
+}
+```
+
+<hr/>
+
+## EasyCache for MemCache
+Install `EasyCache.MemCache` from [Nuget Package](https://www.nuget.org/packages/EasyCache.MemCache)
+
+Add `services.AddEasyRedisCache()` in startup.cs
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers();
+    
+    services.AddEasyMemCache(options=>options.AddServer("localhost",11211)); <-- Initialize EasyCache for MemCache
+}
+```
+after get `IEasCacheService` from dependency injection.
+
+```csharp
+private readonly IEasyCacheService easyCacheService;
+
+public DefaultController(IEasyCacheService easyCacheService)
+{
+    this.easyCacheService = easyCacheService;
+}
+```
+
+<hr/>
+
+See for more information [Wiki](https://github.com/furkandeveloper/EasyCache/wiki)
