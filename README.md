@@ -109,3 +109,7 @@ public DefaultController(IEasyCacheService easyCacheService)
 <hr/>
 
 See for more information [Wiki](https://github.com/furkandeveloper/EasyCache/wiki)
+
+## Support
+
+If you are having problems, please let us know by [raising a new issue](https://github.com/furkandeveloper/EasyCache/issues/new/choose).
