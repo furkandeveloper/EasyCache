@@ -119,17 +119,17 @@ This package includes base methods for EasyCache.
             return data;
         }
 
-        public static T GetAndSetAsync<T>(this IEasyCacheService easyCacheService, string key, Func<T> getResult, TimeSpan expireTime)
+        public static Task<T> GetAndSetAsync<T>(this IEasyCacheService easyCacheService, string key, Func<Task<T>> getResult, TimeSpan expireTime)
         {
             var data = easyCacheService.Get<T>(key);
 
             if (data == null)
             {
-                data = getResult();
+                data = getResult().GetAwaiter().GetResult();
                 easyCacheService.Set(key, data, expireTime);
             }
 
-            return data;
+            return Task.FromResult(data);
         }
     }
 ```
