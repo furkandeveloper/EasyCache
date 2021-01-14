@@ -10,6 +10,7 @@
 		<PackageTags>cache, easy-cache, cache-manager, dotnet, dotnetcore, net5</PackageTags>
 		<PackageIcon>easyCache.png</PackageIcon>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
