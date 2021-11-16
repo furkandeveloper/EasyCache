@@ -113,3 +113,7 @@ See for more information [Wiki](https://github.com/furkandeveloper/EasyCache/wik
 ## Support
 
 If you are having problems, please let us know by [raising a new issue](https://github.com/furkandeveloper/EasyCache/issues/new/choose).
+
+<hr/>
+
+![Alt](https://repobeats.axiom.co/api/embed/dd389955d475338637f2be8512b227262616c41b.svg "Repobeats analytics image")
